@@ -174,7 +174,35 @@ function MenubarFile( editor ) {
 	} );
 	options.add( option );
 
-	//
+	// Export map
+	var option = new UIRow();
+	option.setClass( 'option' );
+	option.setTextContent( strings.getKey( 'menubar/file/export/map' ) );
+	option.onClick( function () {
+
+		let output = [];
+		editor.scene.children.forEach( child => {
+
+			const { name, position, rotation, scale, userData, terrain } = child;
+			output.push( { name, position, rotation, scale, userData, terrain } );
+
+		} );
+
+		try {
+
+			output = JSON.stringify( output, null, '\t' );
+			output = output.replace( /[\n\t]+([\d\.e\-\[\]]+)/g, '$1' );
+
+		} catch ( e ) {
+
+			output = JSON.stringify( output );
+
+		}
+
+		saveString( output, 'map.json' );
+
+	} );
+	options.add( option );
 
 	options.add( new UIHorizontalRule() );
 

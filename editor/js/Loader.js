@@ -243,6 +243,15 @@ function Loader( editor ) {
 					loader.setDRACOLoader( dracoLoader );
 					loader.parse( contents, '', function ( result ) {
 
+						result.scene.traverse( ( o ) => {
+
+							if ( o.isMesh ) {
+
+								o.material.metalness = 0;
+
+							}
+
+						} );
 						var scene = result.scene;
 						scene.name = filename;
 

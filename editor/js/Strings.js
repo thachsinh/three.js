@@ -12,6 +12,7 @@ function Strings( config ) {
 			'menubar/file/export/geometry': 'Export Geometry',
 			'menubar/file/export/object': 'Export Object',
 			'menubar/file/export/scene': 'Export Scene',
+			'menubar/file/export/map': 'Export Map',
 			'menubar/file/export/dae': 'Export DAE',
 			'menubar/file/export/drc': 'Export DRC',
 			'menubar/file/export/glb': 'Export GLB',
@@ -124,6 +125,7 @@ function Strings( config ) {
 			'sidebar/object/receive': 'receive',
 			'sidebar/object/visible': 'Visible',
 			'sidebar/object/frustumcull': 'Frustum Cull',
+			'sidebar/object/terrain': 'Terrain',
 			'sidebar/object/renderorder': 'Render Order',
 			'sidebar/object/userdata': 'User data',
 

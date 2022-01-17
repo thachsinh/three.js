@@ -41,7 +41,6 @@
     "globals": {
       "__THREE_DEVTOOLS__": "readonly",
       "WebGL2ComputeRenderingContext": "readonly",
-
       "potpack": "readonly",
       "fflate": "readonly",
       "bodymovin": "readonly",
@@ -49,7 +48,6 @@
       "Stats": "readonly",
       "XRWebGLBinding": "readonly",
       "XRWebGLLayer": "readonly",
-
       "GPUShaderStage": "readonly",
       "GPUBufferUsage": "readonly",
       "GPUTextureUsage": "readonly"
@@ -72,6 +70,7 @@
     }
   },
   "scripts": {
+    "server": "./node_modules/.bin/http-server -p 1111",
     "start": "npm run dev",
     "test": "npm run lint && npm run test-unit",
     "build": "rollup -c utils/build/rollup.config.js",
@@ -141,5 +140,8 @@
       "build/three.module.js"
     ],
     "directories": {}
+  },
+  "dependencies": {
+    "http-server": "^14.1.0"
   }
 }

@@ -349,6 +349,16 @@ function SidebarObject( editor ) {
 
 	container.add( objectFrustumCulledRow );
 
+	// terrain
+
+	var objectTerrainRow = new UIRow();
+	var objectTerrain = new UICheckbox().onChange( update );
+
+	objectTerrainRow.add( new UIText( strings.getKey( 'sidebar/object/terrain' ) ).setWidth( '90px' ) );
+	objectTerrainRow.add( objectTerrain );
+
+	container.add( objectTerrainRow );
+
 	// renderOrder
 
 	var objectRenderOrderRow = new UIRow();
@@ -524,6 +534,12 @@ function SidebarObject( editor ) {
 			if ( object.frustumCulled !== objectFrustumCulled.getValue() ) {
 
 				editor.execute( new SetValueCommand( editor, object, 'frustumCulled', objectFrustumCulled.getValue() ) );
+
+			}
+
+			if ( object.terrain !== objectTerrain.getValue() ) {
+
+				editor.execute( new SetValueCommand( editor, object, 'terrain', objectTerrain.getValue() ) );
 
 			}
 
@@ -822,6 +838,7 @@ function SidebarObject( editor ) {
 
 		objectVisible.setValue( object.visible );
 		objectFrustumCulled.setValue( object.frustumCulled );
+		objectTerrain.setValue( object.terrain );
 		objectRenderOrder.setValue( object.renderOrder );
 
 		try {

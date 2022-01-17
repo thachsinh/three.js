@@ -7887,6 +7887,7 @@ class Object3D extends EventDispatcher {
 		if ( this.receiveShadow === true ) object.receiveShadow = true;
 		if ( this.visible === false ) object.visible = false;
 		if ( this.frustumCulled === false ) object.frustumCulled = false;
+		if ( this.terrain === true ) object.terrain = true;
 		if ( this.renderOrder !== 0 ) object.renderOrder = this.renderOrder;
 		if ( JSON.stringify( this.userData ) !== '{}' ) object.userData = this.userData;
 
@@ -42326,6 +42327,7 @@ class ObjectLoader extends Loader {
 
 		if ( data.visible !== undefined ) object.visible = data.visible;
 		if ( data.frustumCulled !== undefined ) object.frustumCulled = data.frustumCulled;
+		if ( data.terrain !== undefined ) object.terrain = data.terrain;
 		if ( data.renderOrder !== undefined ) object.renderOrder = data.renderOrder;
 		if ( data.userData !== undefined ) object.userData = data.userData;
 		if ( data.layers !== undefined ) object.layers.mask = data.layers;
