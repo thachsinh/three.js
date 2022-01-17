@@ -1,0 +1,19 @@
+{
+    "apps": [
+        {
+            "name": "threejs_editor",
+            "script": "./node_modules/.bin/http-server -p 1111",
+            "instances": "1",
+            "exec_mode": "cluster",
+            "env": {
+                "COMMON_VARIABLE": "true"
+            },
+            "env_staging": {
+                "NODE_ENV": "staging"
+            },
+            "env_production": {
+                "NODE_ENV": "production"
+            }
+        } 
+    ]
+}
