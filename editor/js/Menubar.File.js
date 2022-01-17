@@ -181,10 +181,16 @@ function MenubarFile( editor ) {
 	option.onClick( function () {
 
 		let output = [];
+		let mapName = 'map';
 		editor.scene.children.forEach( child => {
 
 			const { name, position, rotation, scale, userData, terrain } = child;
 			output.push( { name, position, rotation, scale, userData, terrain } );
+			if ( terrain ) {
+
+				mapName = name.split('.')[0]
+
+			}
 
 		} );
 
@@ -199,7 +205,7 @@ function MenubarFile( editor ) {
 
 		}
 
-		saveString( output, 'map.json' );
+		saveString( output, `${mapName}.json` );
 
 	} );
 	options.add( option );
