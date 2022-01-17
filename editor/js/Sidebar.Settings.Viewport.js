@@ -27,6 +27,20 @@ function SidebarSettingsViewport( editor ) {
 	showGridRow.add( showGrid );
 	container.add( showGridRow );
 
+	// light
+
+	var showLightRow = new UIRow();
+
+	showLightRow.add( new UIText( strings.getKey( 'sidebar/settings/viewport/light' ) ).setWidth( '90px' ) );
+
+	var showLight = new UIBoolean( true ).onChange( function () {
+
+		signals.showLightChanged.dispatch( showLight.getValue() );
+
+	} );
+	showLightRow.add( showLight );
+	container.add( showLightRow );
+
 	// helpers
 
 	var showHelpersRow = new UIRow();

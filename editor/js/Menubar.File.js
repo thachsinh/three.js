@@ -193,6 +193,10 @@ function MenubarFile( editor ) {
 			}
 
 		} );
+		if (mapName === 'map') {
+			alert('Terrain Not Found!')
+			throw new Error('Terrain Not Found!')
+		} 
 
 		try {
 

@@ -317,6 +317,7 @@ function Strings( config ) {
 
 			'sidebar/settings/viewport': 'Viewport',
 			'sidebar/settings/viewport/grid': 'Grid',
+			'sidebar/settings/viewport/light': 'Light',
 			'sidebar/settings/viewport/helpers': 'Helpers',
 
 			'sidebar/history': 'History',

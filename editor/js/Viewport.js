@@ -40,16 +40,28 @@ function Viewport( editor ) {
 
 	var objects = [];
 
+	// light
+	let light
+	setTimeout(() => {
+		light = scene.getObjectByName('light')
+		if (!light) {
+			light = new THREE.AmbientLight(0xffffff, 1)
+			light.name = 'light'
+			scene.add(light)
+		}
+	}, 3000)
+	
+	
 	// helpers
 
 	var grid = new THREE.Group();
 
-	var grid1 = new THREE.GridHelper( 30, 30, 0x888888 );
+	var grid1 = new THREE.GridHelper( 150, 150, 0x888888 );
 	grid1.material.color.setHex( 0x888888 );
 	grid1.material.vertexColors = false;
 	grid.add( grid1 );
 
-	var grid2 = new THREE.GridHelper( 30, 6, 0x222222 );
+	var grid2 = new THREE.GridHelper( 150, 30, 0x222222 );
 	grid2.material.color.setHex( 0x222222 );
 	grid2.material.depthFunc = THREE.AlwaysDepth;
 	grid2.material.vertexColors = false;
@@ -700,6 +712,12 @@ function Viewport( editor ) {
 		grid.visible = showGrid;
 		render();
 
+	} );
+
+	signals.showLightChanged.add( function ( showLight ) {
+
+		light.visible = showLight;
+		render();
 	} );
 
 	signals.showHelpersChanged.add( function ( showHelpers ) {

@@ -25201,7 +25201,7 @@ function WebGLMaterials( properties ) {
 
 		if ( material.specularMap ) {
 
-			uniforms.specularMap.value = material.specularMap;
+			if (uniforms.specularMap) uniforms.specularMap.value = material.specularMap;
 
 		}
 
