@@ -6,7 +6,7 @@ import { History as _History } from './History.js';
 import { Strings } from './Strings.js';
 import { Storage as _Storage } from './Storage.js';
 
-var _DEFAULT_CAMERA = new THREE.PerspectiveCamera( 50, 1, 0.01, 1000 );
+var _DEFAULT_CAMERA = new THREE.PerspectiveCamera( 50, 1, 0.01, 3000 );
 _DEFAULT_CAMERA.name = 'Camera';
 _DEFAULT_CAMERA.position.set( 0, 5, 10 );
 _DEFAULT_CAMERA.lookAt( new THREE.Vector3() );
@@ -47,6 +47,7 @@ function Editor() {
 		sceneBackgroundChanged: new Signal(),
 		sceneEnvironmentChanged: new Signal(),
 		sceneFogChanged: new Signal(),
+		sceneSkyChanged: new Signal(),
 		sceneFogSettingsChanged: new Signal(),
 		sceneGraphChanged: new Signal(),
 		sceneRendered: new Signal(),

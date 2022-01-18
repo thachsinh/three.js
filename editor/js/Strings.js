@@ -90,6 +90,7 @@ function Strings( config ) {
 			'sidebar/scene/background': 'Background',
 			'sidebar/scene/environment': 'Environment',
 			'sidebar/scene/fog': 'Fog',
+			'sidebar/scene/sky': 'Sky',
 
 			'sidebar/properties/object': 'Object',
 			'sidebar/properties/geometry': 'Geometry',

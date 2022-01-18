@@ -2,15 +2,35 @@ import * as THREE from '../../build/three.module.js';
 
 import { UIPanel, UIBreak, UIRow, UIColor, UISelect, UIText, UINumber } from './libs/ui.js';
 import { UIOutliner, UITexture } from './libs/ui.three.js';
+import SkyBox from './Skybox.js';
 
 function SidebarScene( editor ) {
 
 	var signals = editor.signals;
 	var strings = editor.strings;
+	var scene = editor.scene
 
 	var container = new UIPanel();
 	container.setBorderTop( '0' );
 	container.setPaddingTop( '20px' );
+
+	let sky
+	let sType
+	setTimeout(() => {
+		sky = scene.getObjectByName('sky')
+		if (sky) {
+			sType = sky.userData.type
+			scene.remove(sky)
+		} 
+		
+		sky = new SkyBox()
+		scene.add(sky)
+		if (sType) {
+			sky.loadSky(sType)
+			skyType.setValue(sType)
+		}
+		
+	}, 3000);
 
 	// outliner
 
@@ -299,6 +319,28 @@ function SidebarScene( editor ) {
 
 	container.add( fogTypeRow );
 
+	// sky
+	async function onSkyChanged() {
+		const type = skyType.getValue()
+		await sky.loadSky(type)
+		signals.sceneFogChanged.dispatch(type)
+	}
+
+	var skyTypeRow = new UIRow()
+	var skyType = new UISelect().setOptions( {
+
+		'none': '',
+		'bluecloud': 'bluecloud',
+		'yonder': 'yonder'
+
+	} ).setWidth( '150px' );
+	skyType.onChange(function() {
+		onSkyChanged()
+	})
+
+	skyTypeRow.add( new UIText( strings.getKey( 'sidebar/scene/sky' ) ).setWidth( '90px' ) );
+	skyTypeRow.add(skyType)
+	container.add(skyTypeRow)
 	// fog color
 
 	var fogPropertiesRow = new UIRow();

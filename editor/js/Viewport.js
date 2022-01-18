@@ -48,6 +48,7 @@ function Viewport( editor ) {
 			light = new THREE.AmbientLight(0xffffff, 1)
 			light.name = 'light'
 			scene.add(light)
+			render()
 		}
 	}, 3000)
 	
@@ -649,6 +650,10 @@ function Viewport( editor ) {
 		render();
 
 	} );
+
+	signals.sceneSkyChanged.add(function(skyType) {
+		render();
+	})
 
 	signals.sceneFogSettingsChanged.add( function ( fogType, fogColor, fogNear, fogFar, fogDensity ) {
 
