@@ -838,7 +838,7 @@ function SidebarObject( editor ) {
 
 		objectVisible.setValue( object.visible );
 		objectFrustumCulled.setValue( object.frustumCulled );
-		objectTerrain.setValue( object.terrain );
+		objectTerrain.setValue( !!object.terrain );
 		objectRenderOrder.setValue( object.renderOrder );
 
 		try {
