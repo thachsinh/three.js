@@ -331,8 +331,7 @@ function SidebarScene( editor ) {
 
 		'none': '',
 		'bluecloud': 'bluecloud',
-		'yonder': 'yonder'
-
+		'yonder': 'yonder',
 	} ).setWidth( '150px' );
 	skyType.onChange(function() {
 		onSkyChanged()

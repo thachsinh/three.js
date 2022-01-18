@@ -2,7 +2,7 @@
     "apps": [
         {
             "name": "threejs_editor",
-            "script": "./node_modules/.bin/http-server -p 1111",
+            "script": "./node_modules/.bin/http-server -s -p 1111",
             "instances": "1",
             "exec_mode": "cluster",
             "env": {
