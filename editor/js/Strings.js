@@ -101,6 +101,7 @@ function Strings( config ) {
 			'sidebar/object/uuid': 'UUID',
 			'sidebar/object/name': 'Name',
 			'sidebar/object/position': 'Position',
+			'sidebar/object/target': 'Target',
 			'sidebar/object/rotation': 'Rotation',
 			'sidebar/object/scale': 'Scale',
 			'sidebar/object/fov': 'Fov',
