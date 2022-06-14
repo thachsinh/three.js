@@ -41,16 +41,16 @@ function Viewport( editor ) {
 	var objects = [];
 
 	// light
-	let light
-	setTimeout(() => {
-		light = scene.getObjectByName('light')
-		if (!light) {
-			light = new THREE.AmbientLight(0xffffff, 1)
-			light.name = 'light'
-			scene.add(light)
-			render()
-		}
-	}, 3000)
+	// let light
+	// setTimeout(() => {
+	// 	light = scene.getObjectByName('light')
+	// 	if (!light) {
+	// 		light = new THREE.AmbientLight(0xffffff, 1)
+	// 		light.name = 'light'
+	// 		scene.add(light)
+	// 		render()
+	// 	}
+	// }, 3000)
 	
 	
 	// helpers
