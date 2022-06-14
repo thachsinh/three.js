@@ -102,6 +102,7 @@ function Strings( config ) {
 			'sidebar/object/uuid': 'UUID',
 			'sidebar/object/name': 'Name',
 			'sidebar/object/position': 'Position',
+			'sidebar/object/target': 'Target',
 			'sidebar/object/rotation': 'Rotation',
 			'sidebar/object/scale': 'Scale',
 			'sidebar/object/fov': 'Fov',
@@ -318,7 +319,6 @@ function Strings( config ) {
 
 			'sidebar/settings/viewport': 'Viewport',
 			'sidebar/settings/viewport/grid': 'Grid',
-			'sidebar/settings/viewport/light': 'Light',
 			'sidebar/settings/viewport/helpers': 'Helpers',
 
 			'sidebar/history': 'History',

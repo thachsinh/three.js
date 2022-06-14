@@ -11,7 +11,6 @@ import { SetScaleCommand } from './commands/SetScaleCommand.js';
 import { SetColorCommand } from './commands/SetColorCommand.js';
 
 function SidebarObject( editor ) {
-
 	var strings = editor.strings;
 
 	var signals = editor.signals;
@@ -20,6 +19,7 @@ function SidebarObject( editor ) {
 	container.setBorderTop( '0' );
 	container.setPaddingTop( '20px' );
 	container.setDisplay( 'none' );
+	
 
 	// Actions
 
@@ -117,6 +117,17 @@ function SidebarObject( editor ) {
 	objectPositionRow.add( objectPositionX, objectPositionY, objectPositionZ );
 
 	container.add( objectPositionRow );
+
+	// target position
+	var targetPositionRow = new UIRow();
+	var targetPositionX = new UINumber().setPrecision( 3 ).setWidth( '50px' ).onChange( update );
+	var targetPositionY = new UINumber().setPrecision( 3 ).setWidth( '50px' ).onChange( update );
+	var targetPositionZ = new UINumber().setPrecision( 3 ).setWidth( '50px' ).onChange( update );
+
+	targetPositionRow.add( new UIText( strings.getKey( 'sidebar/object/target' ) ).setWidth( '90px' ) );
+	targetPositionRow.add( targetPositionX, targetPositionY, targetPositionZ );
+
+	container.add( targetPositionRow );
 
 	// rotation
 
@@ -410,6 +421,16 @@ function SidebarObject( editor ) {
 
 				editor.execute( new SetPositionCommand( editor, object, newPosition ) );
 
+			}
+
+			if (object.type === 'DirectionalLight') {
+				var newTargetPosition = new THREE.Vector3( targetPositionX.getValue(), targetPositionY.getValue(), targetPositionZ.getValue() );
+				if ( object.target.position.distanceTo( newTargetPosition ) >= 0.01 ) {
+
+					object.target.position.copy(newTargetPosition)
+					object.target.updateMatrixWorld(true)
+					signals.objectChanged.dispatch( object );
+				}
 			}
 
 			var newRotation = new THREE.Euler( objectRotationX.getValue() * THREE.MathUtils.DEG2RAD, objectRotationY.getValue() * THREE.MathUtils.DEG2RAD, objectRotationZ.getValue() * THREE.MathUtils.DEG2RAD );
@@ -731,6 +752,12 @@ function SidebarObject( editor ) {
 		objectScaleX.setValue( object.scale.x );
 		objectScaleY.setValue( object.scale.y );
 		objectScaleZ.setValue( object.scale.z );
+
+		if ( object.type === 'DirectionalLight') {
+			targetPositionX.setValue( object.target.position.x );
+			targetPositionY.setValue( object.target.position.y );
+			targetPositionZ.setValue( object.target.position.z );
+		}
 
 		if ( object.fov !== undefined ) {
 
