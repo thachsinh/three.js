@@ -183,9 +183,10 @@ function MenubarFile( editor ) {
 		let output = [];
 		let mapName = 'map';
 		editor.scene.children.forEach( child => {
-
-			const { name, position, rotation, scale, userData, terrain, target } = child;
-			output.push( { name, position, rotation, scale, userData, terrain, target } );
+			let targetPosition
+			const { name, position, rotation, scale, userData, terrain, target, intensity, color } = child;
+			if (target) targetPosition = target.position 
+			output.push( { name, position, rotation, scale, userData, terrain, targetPosition, intensity, color } );
 			if ( terrain ) {
 
 				mapName = name.split('.')[0]
