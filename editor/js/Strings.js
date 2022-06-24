@@ -128,6 +128,7 @@ function Strings( config ) {
 			'sidebar/object/visible': 'Visible',
 			'sidebar/object/frustumcull': 'Frustum Cull',
 			'sidebar/object/terrain': 'Terrain',
+			'sidebar/object/sky': 'Sky',
 			'sidebar/object/renderorder': 'Render Order',
 			'sidebar/object/userdata': 'User data',
 

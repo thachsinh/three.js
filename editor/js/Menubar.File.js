@@ -182,9 +182,10 @@ function MenubarFile( editor ) {
 
 		let output = [];
 		let mapName = 'map';
+		let skyName = ''
 		editor.scene.children.forEach( child => {
 			let targetPosition
-			const { name, position, rotation, scale, userData, terrain, target, intensity, color } = child;
+			const { name, position, rotation, scale, userData, terrain, target, intensity, color, sky } = child;
 			if (target) targetPosition = target.position 
 			output.push( { name, position, rotation, scale, userData, terrain, targetPosition, intensity, color } );
 			if ( terrain ) {
@@ -193,11 +194,15 @@ function MenubarFile( editor ) {
 
 			}
 
+			if (sky) skyName = 'name'
+
 		} );
 		if (mapName === 'map') {
 			alert('Terrain Not Found!')
 			throw new Error('Terrain Not Found!')
-		} 
+		}
+
+		if (!skyName) alert('Sky Not Found')
 
 		try {
 

@@ -370,6 +370,16 @@ function SidebarObject( editor ) {
 
 	container.add( objectTerrainRow );
 
+	// sky
+
+	var objectSkyRow = new UIRow();
+	var objectSky = new UICheckbox().onChange( update );
+
+	objectSkyRow.add( new UIText( strings.getKey( 'sidebar/object/sky' ) ).setWidth( '90px' ) );
+	objectSkyRow.add( objectSky );
+	objectSkyRow
+	container.add( objectSkyRow );
+
 	// renderOrder
 
 	var objectRenderOrderRow = new UIRow();
@@ -561,6 +571,12 @@ function SidebarObject( editor ) {
 			if ( object.terrain !== objectTerrain.getValue() ) {
 
 				editor.execute( new SetValueCommand( editor, object, 'terrain', objectTerrain.getValue() ) );
+
+			}
+
+			if ( object.sky !== objectSky.getValue() ) {
+
+				editor.execute( new SetValueCommand( editor, object, 'sky', objectSky.getValue() ) );
 
 			}
 
@@ -866,6 +882,7 @@ function SidebarObject( editor ) {
 		objectVisible.setValue( object.visible );
 		objectFrustumCulled.setValue( object.frustumCulled );
 		objectTerrain.setValue( !!object.terrain );
+		objectSky.setValue( !!object.sky );
 		objectRenderOrder.setValue( object.renderOrder );
 
 		try {
