@@ -187,7 +187,7 @@ function MenubarFile( editor ) {
 			let targetPosition
 			const { name, position, rotation, scale, userData, terrain, target, intensity, color, sky } = child;
 			if (target) targetPosition = target.position 
-			output.push( { name, position, rotation, scale, userData, terrain, targetPosition, intensity, color } );
+			output.push( { name, position, rotation, scale, userData, terrain, targetPosition, intensity, color, sky } );
 			if ( terrain ) {
 
 				mapName = name.split('.')[0]
