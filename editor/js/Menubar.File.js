@@ -183,6 +183,11 @@ function MenubarFile( editor ) {
 		let output = [];
 		let mapName = 'map';
 		let skyName = ''
+		if (editor.scene.fog) {
+			const { color, density } = editor.scene.fog
+			output.push({ name: 'fog', color, density })
+		}
+		
 		editor.scene.children.forEach( child => {
 			let targetPosition
 			const { name, position, rotation, scale, userData, terrain, target, intensity, color, sky } = child;

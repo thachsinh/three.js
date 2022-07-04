@@ -67,7 +67,9 @@
           "ignoreReadBeforeAssign": false
         }
       ],
-      "space-in-parens": ["never"]
+      "space-in-parens": [
+        "never"
+      ]
     }
   },
   "scripts": {
