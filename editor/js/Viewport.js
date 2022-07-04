@@ -651,10 +651,6 @@ function Viewport( editor ) {
 
 	} );
 
-	signals.sceneSkyChanged.add(function(skyType) {
-		render();
-	})
-
 	signals.sceneFogSettingsChanged.add( function ( fogType, fogColor, fogNear, fogFar, fogDensity ) {
 
 		switch ( fogType ) {
